@@ -1,9 +1,6 @@
 package Array;
 
 public class basic {
-<<<<<<< HEAD
-    
-=======
     public static void main(String[] args) {
         int[] arr_main = new int[4];
         arr_main[0] = 10;
