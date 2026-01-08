@@ -21,5 +21,6 @@ public class peak {
             }
         }
         return lh;
+        //return rh; 
     }
 }
