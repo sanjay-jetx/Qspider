@@ -1,4 +1,4 @@
-package statements;
+package Random;
 import java.util.Scanner;
 public class ass {
 	public static void main(String[]args) {

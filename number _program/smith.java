@@ -14,7 +14,6 @@ class Solution {
         int sumDigits = digitSum(n);
         int sumFactors = 0;
 
-        // Check prime factors
         for (int i = 2; i * i <= n; i++) {
             while (n % i == 0) {
                 sumFactors += digitSum(i);
@@ -22,11 +21,9 @@ class Solution {
             }
         }
 
-        // If n is prime, it's NOT a Smith number
         if (n == temp)
             return false;
-
-        // Remaining prime factor
+        
         if (n > 1)
             sumFactors += digitSum(n);
 

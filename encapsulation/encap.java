@@ -1,3 +1,4 @@
+package encapsulation;
 public class encap {
     private int price;
     private int page;

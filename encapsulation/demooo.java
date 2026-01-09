@@ -1,4 +1,4 @@
-class demooo {
+public class demooo {
     private int id ;
     private String name;
     private int salary;

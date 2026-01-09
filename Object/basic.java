@@ -1,4 +1,7 @@
 // Outer class
+
+import Random.basic;
+
 public class basic {
 
     // Static variable (belongs to class, shared by all objects)

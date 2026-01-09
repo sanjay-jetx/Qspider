@@ -1,5 +1,7 @@
 public class Automorphic {
 
+
+    
     public static void method_main(int n) {
         int square = n * n;
         int temp = n;   
