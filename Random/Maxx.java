@@ -1,4 +1,4 @@
-package Qspider;
+package Random;
 
 import  static java.lang.Math.*;
 
