@@ -1,5 +1,5 @@
 import java.util.*;
-public class basic2 {
+public class basic22Darray {
     public static void main(String[] args) {
         // int[][] arr = new int[3][3];
 

@@ -14,7 +14,7 @@ public class basic {
     public static void main(String[] args) {
 
         // Creating object of outer class 'basic'
-        basic obj1 = new basic();
+        basic_2Darray obj1 = new basic_2Darray();
 
         // Accessing static variable using class (or object – but class is preferred)
         name = "Sanjay";
@@ -30,11 +30,11 @@ public class basic {
 
         // Creating another outer class object
         // This object will be used to create inner class object
-        basic outer = new basic();
+        basic_2Darray outer = new basic_2Darray();
 
         // Creating object of NON-STATIC inner class
         // Syntax: outerObject.new InnerClass()
-        basic.Object1 obj = outer.new Object1();
+        basic_2Darray.Object1 obj = outer.new Object1();
 
         // Setting inner class variables
         obj.id = 12;

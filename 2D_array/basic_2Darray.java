@@ -1,4 +1,4 @@
-public class basic {
+public class basic_2Darray {
     public static void method() {
         int[][] a = { { 1, 2, 3 }, { 1, 2, 3, 4 }, { 1, 2 } };
         for (int i = 0; i < 3; i++) {
