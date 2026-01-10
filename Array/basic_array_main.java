@@ -1,6 +1,4 @@
-package Array;
-
-public class basic {
+public class basic_array_main {
     public static void main(String[] args) {
         int[] arr_main = new int[4];
         arr_main[0] = 10;

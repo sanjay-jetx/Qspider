@@ -1,4 +1,3 @@
-package encapsulation;
 public class encap {
     private int price;
     private int page;
@@ -13,7 +12,8 @@ public class encap {
     }
 
     public void get() {
-        System.out.println("author : "+author+ " " + " page : " + page +" "+ " price : " + price +" " +"title : " + title);
+        System.out.println(
+                "author : " + author + " " + " page : " + page + " " + " price : " + price + " " + "title : " + title);
     }
 
     public String getauthor() {
@@ -37,7 +37,7 @@ public class encap {
         obj.set(100, 2000, "Atom", "sanjay");
         obj.get();
 
-        System.out.println(obj.getauthor()+ " " + obj.gettitle()+ " " + obj.getprice()+ " " + obj.getpage());
+        System.out.println(obj.getauthor() + " " + obj.gettitle() + " " + obj.getprice() + " " + obj.getpage());
 
     }
 }
