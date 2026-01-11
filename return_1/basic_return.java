@@ -1,4 +1,4 @@
-public class basic {
+public class basic_return {
     public static int add(int a , int b){
         return a + b;
     }

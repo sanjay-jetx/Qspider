@@ -1,5 +1,5 @@
 
-public class basic {
+public class basic_sl{
     public static void L_shape(int a) {
 
         // Solid block

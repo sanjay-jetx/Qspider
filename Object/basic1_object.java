@@ -1,4 +1,4 @@
-public class basic1 {
+public class basic1_object{
     public static void main(String[] args) {
         employee obj1 = new employee();
         employee obj2 = new employee();

@@ -1,5 +1,4 @@
-
-public class Linear {
+public class Linear_ {
     public static void basic(int a[], int target) {
         int count = 0;
         for (int i = 0; i < a.length; i++) {

@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 
-public class basic {
+public class basic_random{
     public static void main(String[] args) {
 
         Scanner new1 = new Scanner(System.in);

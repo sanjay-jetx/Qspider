@@ -1,4 +1,4 @@
-class Solution {
+class smith{
 
     static int digitSum(int n) {
         int sum = 0;
