@@ -1,6 +1,6 @@
 
 
-public class basic {
+public class basic_sliding {
     public static void main(String[] args) {
 
         int a[] = {2, 1, 5, 1, 3, 2};

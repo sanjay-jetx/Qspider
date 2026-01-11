@@ -1,4 +1,4 @@
-
+package pattern;
 public class basic {
     public static void main(String[] args) {
         int num = 5;

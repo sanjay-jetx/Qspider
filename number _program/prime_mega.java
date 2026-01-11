@@ -18,9 +18,6 @@ public class prime_mega {
             num++;
         }
     }
-
-}
-
     public static boolean isprime(int n) {
         if (n <= 1) {
             return false;
