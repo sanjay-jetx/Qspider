@@ -11,9 +11,9 @@ public class reverse {
             System.out.println(rev);
             n = num /= 10;
             System.out.println(n);
-            
+
         }
         System.out.println(rev);
-        
+
     }
-    }
+}

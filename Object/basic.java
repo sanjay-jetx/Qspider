@@ -1,6 +1,6 @@
 // Outer class
 
-import Random.basic;
+// import Random.basic;
 
 public class basic {
 

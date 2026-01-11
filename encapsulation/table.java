@@ -1,4 +1,3 @@
-package encapsulation;
 
 public class table {
 
@@ -16,7 +15,7 @@ public class table {
         this.damages = damages;
         this.drawers = drawers;
     }
-    
+
     public String getColor() {
         return color;
     }
@@ -65,8 +64,8 @@ public class table {
 
     public static void arrayy(int arr[]) {
         int sum = 0;
-        for(int i : arr){
-            sum+=i;
+        for (int i : arr) {
+            sum += i;
         }
         System.out.println(sum);
     }

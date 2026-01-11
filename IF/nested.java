@@ -18,5 +18,6 @@ public class nested {
         else {
             System.out.println("Error correct value ");
         }
+        sc.close();
     }
 }

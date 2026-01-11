@@ -9,7 +9,7 @@ public class lcm_gcm {
             b = a % b;
             a = temp;
         }
-        int lcm = (x*y)/a;
+        int lcm = (x * y) / a;
         System.out.println("gcd" + a);
         System.out.println("lcm" + lcm);
     }

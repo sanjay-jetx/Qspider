@@ -9,7 +9,6 @@ public class bounce {
 
         int ld = num % 10;
         num /= 10;
-        
 
         int curn = 0;
         while (num > 0) {

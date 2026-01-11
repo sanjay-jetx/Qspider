@@ -1,4 +1,4 @@
-package two_pointers;
+
 
 public class unique {
 public static void main(String[] args) {

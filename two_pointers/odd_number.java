@@ -1,4 +1,4 @@
-package two_pointers;
+
 
 public class odd_number {
     public static void main(String[] args) {

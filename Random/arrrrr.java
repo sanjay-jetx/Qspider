@@ -1,4 +1,4 @@
-package Random;
+
 public class arrrrr {
 	public static int[] reverseWindow(int a[], int k) {
         int n = a.length;
@@ -59,4 +59,3 @@ public class SubArrayProductLessThanLimit {
         System.out.println("Count = " + countSubArr(a, limit));
     }
 }
-

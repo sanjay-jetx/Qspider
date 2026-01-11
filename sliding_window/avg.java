@@ -1,4 +1,4 @@
-package sliding_window;
+
 
 public class avg {
     public static void main(String[] args) {

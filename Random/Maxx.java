@@ -1,6 +1,5 @@
-package Random;
 
-import  static java.lang.Math.*;
+import static java.lang.Math.*;
 
 public class Maxx {
     public static void main(String[] args) {

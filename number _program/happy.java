@@ -5,7 +5,7 @@ public class happy {
             int ld = num % 10;
             sum += ld * ld;
             num /= 10;
-            num = sum;
+           
         }
     public static boolean ishappy(int num){
         while(num!=1 && num!=4){

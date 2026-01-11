@@ -20,6 +20,7 @@ public class SWITCH {
                 System.out.println("Thanks you");
             }
         }
+        sc.close();
     }
 }
 

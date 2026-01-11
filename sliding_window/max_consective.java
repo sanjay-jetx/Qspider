@@ -1,4 +1,4 @@
-package sliding_window;
+
 
 public class max_consective {
     public static void main(String[] args) {

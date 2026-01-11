@@ -1,4 +1,4 @@
-package two_pointers;
+
 
 public class max_lem {
     public static void main(String[] args) {

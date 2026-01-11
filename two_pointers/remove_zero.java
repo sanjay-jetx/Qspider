@@ -1,4 +1,4 @@
-package two_pointers;
+
 
 public class remove_zero {
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class basic {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome");
         
@@ -11,5 +12,6 @@ public class basic {
             System.out.println("eligible for vote");
         }
         System.out.println("Thank you ");
+        sc.close();
     }
 }

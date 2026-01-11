@@ -1,4 +1,4 @@
-package Random;
+
 public class chaa {
     public static void main(String[] args) {
         int num = 456;

@@ -1,4 +1,4 @@
-package sliding_window;
+
 
 public class small {
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class if_else {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         System.out.print("enter the A : ");
         int a = sc.nextInt();
@@ -12,5 +13,6 @@ public class if_else {
         else {
             System.out.println("B is bigger than A");
         }
+        sc.close();
     }
 }

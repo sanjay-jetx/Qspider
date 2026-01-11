@@ -1,4 +1,4 @@
-package sliding_window;
+
 public class sliding_windoww {
     public static int subarray(int []arr,int k) {
 	int sum=0;
