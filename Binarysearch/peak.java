@@ -1,4 +1,3 @@
-
 public class peak {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 4, 9, 14, 16, 18 };

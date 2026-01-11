@@ -18,6 +18,6 @@ public class overloading {
         overloading obj1 = new overloading();
         obj1.demo(55.3f);
         obj1.demo(2, 5);
-        obj1.demo(2, 3, 4);
+        overloading.demo(2, 3, 4);
     }
 }

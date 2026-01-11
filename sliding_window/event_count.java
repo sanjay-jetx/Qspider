@@ -1,5 +1,3 @@
-
-
 public class event_count {
     public static void main(String[]args){
         int k = 3;
