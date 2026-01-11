@@ -1,9 +1,8 @@
-package star_pattern;
 
 public class basic {
     public static void L_shape(int a) {
 
-        //Solid block
+        // Solid block
         for (int i = 0; i < a; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print('*');
@@ -12,7 +11,7 @@ public class basic {
         }
         System.out.println();
 
-        //L shape
+        // L shape
         for (int i = 0; i < a; i++) {
             for (int j = 0; j < a; j++) {
                 if (j == 0 || i == a - 1) {
@@ -90,10 +89,10 @@ public class basic {
         }
         System.out.println();
 
-        //X shape
+        // X shape
         for (int i = 0; i < a; i++) {
             for (int j = 0; j < a; j++) {
-                if (j + i == a  || j == i || i == a || i == 0 || j == a || j == 0)  {
+                if (j + i == a || j == i || i == a || i == 0 || j == a || j == 0) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");

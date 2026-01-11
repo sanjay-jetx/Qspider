@@ -14,7 +14,8 @@ public class ascci {
             System.out.println("it is lowercase");
         }
         else {
-             System.out.println("enter the valid char");
+            System.out.println("enter the valid char");
         }
+        sc.close();
     }
 }

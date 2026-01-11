@@ -15,6 +15,7 @@ public class assignement {
         int transfer = 600;
         int debit = balance -= transfer;
         System.out.println("current value after transfer :" + debit);
+        sc.close();
 
 
     }

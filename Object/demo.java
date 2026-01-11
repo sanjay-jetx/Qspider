@@ -24,6 +24,8 @@ public class demo {
                 arr[i] = sc.nextInt();
             }
             main(arr);
+
         }
+        sc.close();
     }
 }

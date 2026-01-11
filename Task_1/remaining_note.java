@@ -15,7 +15,8 @@ public class remaining_note {
         amount = amount - ruppes_200 * 200;
 
         int ruppes_50 = amount / 50;
-        System.out.println("no of used 50 note : " + ruppes_50);  
+        System.out.println("no of used 50 note : " + ruppes_50);
+        sc.close();
 
     }
 }

@@ -25,8 +25,8 @@ public class second_lar {
          * System.out.println(max2);
          */
 
-        int max = Integer.MIN_VALUE;
-        int second = Integer.MIN_VALUE;
+        // int max = Integer.MIN_VALUE;
+        // int second = Integer.MIN_VALUE;
 
         for (int i = 0; i < arr.length; i++) {
 

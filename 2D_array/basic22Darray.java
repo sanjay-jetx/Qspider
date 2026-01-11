@@ -29,7 +29,7 @@ public class basic22Darray {
         for (int i = 0; i < arr1.length; i++) {
             System.out.println(Arrays.toString(arr1[i]));
         }
-
+        sc.close();
 
     }
 }

@@ -1,4 +1,3 @@
-package star_pattern;
 
 public class reverse_trinagle {
     public static void main(String[] args) {

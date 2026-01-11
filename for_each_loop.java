@@ -15,6 +15,7 @@ public class for_each_loop {
             }
         }
         System.out.println("The max number of the array : " + max);
+         sc.close();
 
     }
 }

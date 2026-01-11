@@ -32,6 +32,7 @@ public class marks {
         else if (percent >= 60 && percent < 70) {
             System.out.println(" average ");
         }
+        sc.close();
         
     }
 }

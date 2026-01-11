@@ -5,11 +5,11 @@ public class swap_last2 {
 	}
 
 	public static void reverse(int num) {
-		int n = 0;
+		// int n = 0;
 		int temp = num;
 		int count = 0;
 		while (num > 0) {
-			n = num % 10;
+			int n = num % 10;
 
 			num /= 10;
 			count++;

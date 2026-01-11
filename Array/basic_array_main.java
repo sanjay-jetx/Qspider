@@ -12,5 +12,4 @@ public class basic_array_main {
         System.out.println(add);
 
     }
->>>>>>> ee3ee6bf8fb28f67b5e247ba45befd0a1ffe69aa
 }

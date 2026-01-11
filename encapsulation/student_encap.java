@@ -18,8 +18,6 @@ public class student_encap {
     }
     public static void main(String[] args) {
         student_encap obj1 = new student_encap();
-        student_encap obj2 = new student_encap();
-        student_encap obj3 = new student_encap();
 
         obj1.get(100, "sanjay", 250, "math", false);
         obj1.set();

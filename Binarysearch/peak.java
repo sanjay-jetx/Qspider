@@ -1,4 +1,3 @@
-package Binarysearch;
 
 public class peak {
     public static void main(String[] args) {
@@ -21,6 +20,6 @@ public class peak {
             }
         }
         return lh;
-        //return rh; 
+        // return rh;
     }
 }

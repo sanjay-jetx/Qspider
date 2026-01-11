@@ -32,5 +32,6 @@ public class Discriminant {
         } else {
             System.out.println("Roots are imaginary.");
         }
+        sc.close();
     }
 }

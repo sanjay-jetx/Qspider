@@ -1,4 +1,3 @@
-package pattern;
 
 public class basic2 {
     public static void main(String[] args) {
@@ -22,13 +21,11 @@ public class basic2 {
             if (i <= 4) {
                 star++;
                 space -= 2;
-            }
-            else {
+            } else {
                 star--;
                 space += 2;
             }
 
-            }
         }
     }
-
+}

@@ -14,14 +14,12 @@ public class basic {
     public static void main(String[] args) {
 
         // Creating object of outer class 'basic'
-        basic_2Darray obj1 = new basic_2Darray();
+        // basic_2Darray obj1 = new basic_2Darray();
+        // obj1.id = 23;
+        // obj1.salary = 12000;
 
         // Accessing static variable using class (or object – but class is preferred)
-        name = "Sanjay";
-
-        // Setting instance variables using object reference
-        obj1.id = 23;
-        obj1.salary = 12000;
+        basic.name = "Sanjay";
 
         // Printing static variable
         System.out.println(name);
@@ -30,18 +28,18 @@ public class basic {
 
         // Creating another outer class object
         // This object will be used to create inner class object
-        basic_2Darray outer = new basic_2Darray();
+        // basic_2Darray outer = new basic_2Darray();
 
         // Creating object of NON-STATIC inner class
         // Syntax: outerObject.new InnerClass()
-        basic_2Darray.Object1 obj = outer.new Object1();
+        // basic_2Darray.Object1 obj = outer.new Object1();
 
         // Setting inner class variables
-        obj.id = 12;
-        obj.salary = 1222;
+        // obj.id = 12;
+        // obj.salary = 1222;
 
         // Printing inner class data
-        System.out.println(obj.id + obj.salary);
+        // System.out.println(obj.id + obj.salary);
 
         // ==================================================
 
@@ -68,6 +66,4 @@ class object2 {
     int salary;
 }
 
-
-
-//Code done by me but command done by Chatgpt !!!
+// Code done by me but command done by Chatgpt !!!

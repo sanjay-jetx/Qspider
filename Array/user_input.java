@@ -14,6 +14,7 @@ public class user_input {
             arr[i] = sc.nextInt();
         }
         System.out.println(Arrays.toString(arr));
+        sc.close();
 
     }
 }

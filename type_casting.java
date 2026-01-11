@@ -4,10 +4,11 @@ public class type_casting {
         int a = 5;
         double d = a;
         double big = 55.5;
-        int small = (int)big;
+        int small = (int) big;
         float num2 = num;
         System.out.println(num2);
         System.out.println(d);
+        System.out.println(small);
     }
-    
+
 }

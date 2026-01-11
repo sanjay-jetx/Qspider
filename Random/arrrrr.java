@@ -1,11 +1,12 @@
+import java.util.Arrays;
 
 public class arrrrr {
-	public static int[] reverseWindow(int a[], int k) {
+    public static int[] reverseWindow(int a[], int k) {
         int n = a.length;
-        for(int i = 0 ; i< n ; i+=k){
+        for (int i = 0; i < n; i += k) {
             int lh = i;
-            int rh = Math.min(i+k-1, n-1);
-            while(lh < rh){
+            int rh = Math.min(i + k - 1, n - 1);
+            while (lh < rh) {
                 int temp = a[lh];
                 a[lh] = a[rh];
                 a[rh] = temp;
@@ -14,21 +15,19 @@ public class arrrrr {
             }
         }
         return a;
-	}
+    }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		int a[] = {1,2,3,4,5,6,7,8,9};
-		int k = 3;
+        int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int k = 3;
 
-		System.out.println(Arrays.toString(reverseWindow(a, k)));
-	}
+        System.out.println(Arrays.toString(reverseWindow(a, k)));
+    }
 
 }
 
-
-3.
-public class SubArrayProductLessThanLimit {
+class SubArrayProductLessThanLimit {
 
     public static int countSubArr(int a[], int limit) {
 
@@ -36,11 +35,11 @@ public class SubArrayProductLessThanLimit {
         int prod = 1;
         int count = 0;
 
-        for(int j = 0; j < a.length; j++) {
+        for (int j = 0; j < a.length; j++) {
 
             prod = prod * a[j];
 
-            while(prod >= limit && i <= j) {
+            while (prod >= limit && i <= j) {
                 prod = prod / a[i];
                 i++;
             }
@@ -53,7 +52,7 @@ public class SubArrayProductLessThanLimit {
 
     public static void main(String[] args) {
 
-        int a[] = {10, 5, 2, 6};
+        int a[] = { 10, 5, 2, 6 };
         int limit = 100;
 
         System.out.println("Count = " + countSubArr(a, limit));

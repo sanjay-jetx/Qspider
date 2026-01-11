@@ -39,6 +39,7 @@ public class salary {
         }
 
         System.out.println("Total salary : " + full_salary);
+        sc.close();
     }
 }
 

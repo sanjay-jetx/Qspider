@@ -13,5 +13,6 @@ public class divisble_number {
         else {
             System.out.println("It is not divisble ");
         }
+        sc.close();
     }
 }

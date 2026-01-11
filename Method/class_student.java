@@ -15,6 +15,7 @@ public class class_student {
         info(name);
         info(name, age);
         info(name, age, marks);
+        sc.close();
     }
     
     // function decalartion

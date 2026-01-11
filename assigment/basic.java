@@ -1,5 +1,3 @@
-package assigment;
-
 public class basic {
     public static void main(String[] args) {
         int lh = 0;
@@ -12,13 +10,11 @@ public class basic {
                 arr[lh] = temp;
                 rh--;
             }
-            //rh--;
+            // rh--;
             lh++;
         }
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
-
-
     }
 }

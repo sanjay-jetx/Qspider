@@ -22,6 +22,7 @@ public class basic {
         System.out.println(STD);
         System.out.println(SEC);
         System.out.println(num);
+        new1.close();
 
     }
 }
