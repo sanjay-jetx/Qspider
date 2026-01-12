@@ -4,8 +4,20 @@ public class remove_duplicate {
         int arr[] = { 1, 1, 2, 2, 3, 3 };
         while_method(arr);
         hash_method(arr);
+        set_method(arr);
     }
-
+////////////////////////////////////////////////////////////
+    static void set_method(int arr[]) {
+        HashSet<Integer> map = new HashSet<>();
+        for (int i : arr) {
+            map.add(i);
+        
+        }
+        for (int val : map) {
+            System.out.println(val);
+        }
+    }
+///////////////////////////////////////////////////////////////
     static void hash_method(int arr[]) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count = 0;
@@ -19,7 +31,7 @@ public class remove_duplicate {
         }
         System.out.print(map);
     }
-
+//////////////////////////////////////////////////////////////////////
     static void while_method(int arr[]) {
         int lh = 0;
         int rh = lh + 1;
@@ -30,7 +42,7 @@ public class remove_duplicate {
             }
             rh++;
         }
-        System.out.println(Arrays.toString(arr) + " " + lh + 1);
+        System.out.println(Arrays.toString(arr) + " hlo " + (lh + 1));
     }
 }
     
