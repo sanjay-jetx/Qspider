@@ -1,3 +1,4 @@
+package Array_problem_main;
 public class second_largest {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 7, 7, 5 };

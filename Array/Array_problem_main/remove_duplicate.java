@@ -1,3 +1,4 @@
+package Array_problem_main;
 import java.util.*;
 public class remove_duplicate {
     public static void main(String[] args) {

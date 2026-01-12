@@ -1,4 +1,4 @@
-public class Linear_ {
+public class Linear_solve {
     public static void basic(int a[], int target) {
         int count = 0;
         for (int i = 0; i < a.length; i++) {
