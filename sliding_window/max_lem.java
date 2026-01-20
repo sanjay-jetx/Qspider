@@ -1,5 +1,3 @@
-
-
 public class max_lem {
     public static void main(String[] args) {
         int[] a = { 2, 5, 1, 7, 10 };
