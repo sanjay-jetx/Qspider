@@ -1,4 +1,4 @@
-package relationship.basic;
+package relationship.Has_RelationShip.basic;
 
 public class body {
     public static void main(String[] args) {

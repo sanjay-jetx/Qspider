@@ -1,4 +1,4 @@
-package relationship.Two_sim;
+package relationship.Has_RelationShip.Two_sim;
 
 public class Sim {
     String operators;

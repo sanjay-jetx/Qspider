@@ -1,5 +1,3 @@
-
-
 public class even {
     public static void main(String[] args) {
         int[] a = { 1,4,5,3,5,6,12,1};

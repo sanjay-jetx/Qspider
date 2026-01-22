@@ -1,5 +1,3 @@
-
-
 public class basic_sliding {
     public static void main(String[] args) {
 
