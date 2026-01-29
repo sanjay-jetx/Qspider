@@ -1,20 +1,19 @@
 package Vehicle.Bike;
 
-import Vehicle.AbstractClass.*;
+import Vehicle.Abstract_Class.Abstract_Class;
 
+public class Bike_Class extends Abstract_Class {
 
-public class Bike_Class extends Abstract_class {
-    String fuel;
-
+    @Override
     public void move(String fuel) {
-        this.fuel = fuel;
-        System.out.println(fuel);
+        System.out.println("Bike runs using " + fuel);
     }
 
     public static void main(String[] args) {
-        Abstract_class Bike_obj = new Bike_Class();
-        Bike_obj.setSpeed(100);
-        System.out.println(Bike_obj.getSpeed());
-        Bike_obj.move("petrol");
+        Abstract_Class bike = new Bike_Class(); // upcasting
+        bike.setSpeed(100);
+        System.out.println(bike.getSpeed());
+        bike.move("petrol");
     }
 }
+

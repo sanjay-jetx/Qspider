@@ -1,4 +1,4 @@
-package OOPS_Project;
+package Bank_Operations;
 
 public class BankMainAcc {
     public static void main(String[] args) {
