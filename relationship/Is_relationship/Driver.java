@@ -11,7 +11,7 @@ class A {
 
 class B extends A {
     B() {
-        super(10, 20);
+        super(10,20);
         System.out.println("hiii");
     }
 }
