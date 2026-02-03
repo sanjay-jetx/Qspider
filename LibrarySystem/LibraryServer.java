@@ -24,6 +24,7 @@ public class LibraryServer {
         server.createContext("/api/items", new ItemsHandler());
         server.createContext("/api/members", new MembersHandler());
         server.createContext("/api/delete-item", new DeleteItemHandler());
+        server.createContext("/api/delete-member", new DeleteMemberHandler());
 
         // Static File Serving (Web Interface)
         server.createContext("/", new StaticFileHandler());
@@ -38,6 +39,10 @@ public class LibraryServer {
     static class StaticFileHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendResponse(exchange, 204, "");
+                return;
+            }
             String path = exchange.getRequestURI().getPath();
             if (path.equals("/"))
                 path = "/index.html";
@@ -72,6 +77,10 @@ public class LibraryServer {
     static class ItemsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendResponse(exchange, 204, "");
+                return;
+            }
             try {
                 if ("GET".equals(exchange.getRequestMethod())) {
                     StringBuilder json = new StringBuilder("[");
@@ -135,6 +144,10 @@ public class LibraryServer {
     static class MembersHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendResponse(exchange, 204, "");
+                return;
+            }
             if ("GET".equals(exchange.getRequestMethod())) {
                 StringBuilder json = new StringBuilder("[");
                 for (int i = 0; i < members.size(); i++) {
@@ -162,6 +175,10 @@ public class LibraryServer {
     static class DeleteItemHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendResponse(exchange, 204, "");
+                return;
+            }
             if ("POST".equals(exchange.getRequestMethod())) {
                 String id = new String(exchange.getRequestBody().readAllBytes());
                 items.removeIf(item -> item.getItemId().equals(id));
@@ -171,39 +188,51 @@ public class LibraryServer {
     }
 
     private static void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
+        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
+
         exchange.sendResponseHeaders(statusCode, response.length());
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes());
         os.close();
     }
 
-    // Very poor man's JSON parser (just looks for "key": "value")
-    // Very poor man's JSON parser (just looks for "key": "value")
-    private static String extractJsonValue(String json, String key) {
-        String search = "\"" + key + "\"";
-        int start = json.indexOf(search);
-        if (start == -1)
-            return "";
-        start = json.indexOf(":", start) + 1;
-
-        // Find next quote (start of value)
-        int quoteStart = json.indexOf("\"", start);
-        if (quoteStart == -1) {
-            // Maybe it's a number or boolean?
-            // Look for comma or closing brace
-            int end = json.indexOf(",", start);
-            if (end == -1)
-                end = json.indexOf("}", start);
-            if (end == -1)
-                return ""; // Should not happen in valid JSON
-            return json.substring(start, end).trim();
+    private static void handleCors(HttpExchange exchange) throws IOException {
+        if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+            sendResponse(exchange, 204, "");
+            return;
         }
+    }
 
-        // Find closing quote
-        int quoteEnd = json.indexOf("\"", quoteStart + 1);
-        if (quoteEnd == -1)
-            return ""; // Broken JSON
+    // Regex-based JSON parser
+    private static String extractJsonValue(String json, String key) {
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\"" + key + "\"\\s*:\\s*\"([^\"]*)\"");
+        java.util.regex.Matcher matcher = pattern.matcher(json);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        // Try matching numbers/booleans (no quotes)
+        pattern = java.util.regex.Pattern.compile("\"" + key + "\"\\s*:\\s*([0-9]+)");
+        matcher = pattern.matcher(json);
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return "";
+    }
 
-        return json.substring(quoteStart + 1, quoteEnd);
+    static class DeleteMemberHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                sendResponse(exchange, 204, "");
+                return;
+            }
+            if ("POST".equals(exchange.getRequestMethod())) {
+                String id = new String(exchange.getRequestBody().readAllBytes());
+                members.removeIf(m -> m.getMemberId().equals(id));
+                sendResponse(exchange, 200, "Deleted");
+            }
+        }
     }
 }

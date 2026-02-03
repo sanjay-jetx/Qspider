@@ -1,9 +1,20 @@
-const API_URL = "http://localhost:8000/api";
+// Client-Side Logic
+// We use LocalStorage to simulate a database. No Java Server required!
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchItems();
-    fetchMembers();
+    renderItems();
+    renderMembers();
 });
+
+// Load data from browser storage or initialize with empty arrays
+let items = JSON.parse(localStorage.getItem("library_items")) || [];
+let members = JSON.parse(localStorage.getItem("library_members")) || [];
+
+// Helper to save current state
+function saveData() {
+    localStorage.setItem("library_items", JSON.stringify(items));
+    localStorage.setItem("library_members", JSON.stringify(members));
+}
 
 function switchTab(tab) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -32,89 +43,70 @@ function toggleInputs() {
     }
 }
 
-// ------ API CALLS ------
+// ------ ACTIONS ------
 
-async function fetchItems() {
-    try {
-        const res = await fetch(`${API_URL}/items`);
-        const items = await res.json();
-        renderItems(items);
-    } catch (e) {
-        console.error("Failed to fetch items", e);
-    }
-}
-
-async function fetchMembers() {
-    try {
-        const res = await fetch(`${API_URL}/members`);
-        const members = await res.json();
-        renderMembers(members);
-    } catch (e) {
-        console.error("Failed to fetch members", e);
-    }
-}
-
-document.getElementById('addItemForm').addEventListener('submit', async (e) => {
+document.getElementById('addItemForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const type = document.getElementById('itemType').value;
     const title = document.getElementById('itemTitle').value;
     const id = document.getElementById('itemId').value;
-    
-    let extra = "";
+
+    // Check for duplicate ID
+    if (items.some(i => i.itemId === id)) {
+        alert("Error: Item ID already exists!");
+        return;
+    }
+
+    const newItem = { type, title, itemId: id };
+
     if (type === 'Book') {
-        extra = document.getElementById('itemAuthor').value;
+        newItem.author = document.getElementById('itemAuthor').value;
     } else {
-        extra = document.getElementById('itemIssue').value;
+        newItem.issueNumber = document.getElementById('itemIssue').value;
     }
 
-    const payload = { type, title, id, extra };
-
-    try {
-        await fetch(`${API_URL}/items`, {
-            method: 'POST',
-            body: JSON.stringify(payload)
-        });
-        fetchItems(); // Refresh List
-        e.target.reset();
-    } catch (e) {
-        alert("Error adding item");
-    }
+    items.push(newItem);
+    saveData();
+    renderItems();
+    e.target.reset();
+    showToast("Item Added Successfully!");
 });
 
-document.getElementById('addMemberForm').addEventListener('submit', async (e) => {
+document.getElementById('addMemberForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('memberName').value;
     const id = document.getElementById('memberId').value;
 
-    try {
-        await fetch(`${API_URL}/members`, {
-            method: 'POST',
-            body: JSON.stringify({ name, id })
-        });
-        fetchMembers();
-        e.target.reset();
-    } catch (e) {
-        alert("Error adding member");
+    if (members.some(m => m.memberId === id)) {
+        alert("Error: Member ID already exists!");
+        return;
     }
+
+    members.push({ name, memberId: id });
+    saveData();
+    renderMembers();
+    e.target.reset();
+    showToast("Member Registered!");
 });
 
-async function deleteItem(id) {
-    if(!confirm("Delete this item?")) return;
-    try {
-        await fetch(`${API_URL}/delete-item`, {
-            method: 'POST',
-            body: id
-        });
-        fetchItems();
-    } catch (e) {
-        alert("Error deleting item");
-    }
+function deleteItem(id) {
+    if (!confirm("Delete this item?")) return;
+    items = items.filter(i => i.itemId !== id);
+    saveData();
+    renderItems();
+}
+
+function deleteMember(id) {
+    if (!confirm("Delete this member?")) return;
+    members = members.filter(m => m.memberId !== id);
+    saveData();
+    renderMembers();
 }
 
 // ------ RENDER ------
 
-function renderItems(items) {
+function renderItems() {
     const container = document.getElementById('itemsList');
     container.innerHTML = "";
 
@@ -126,13 +118,12 @@ function renderItems(items) {
     items.forEach(item => {
         const div = document.createElement('div');
         div.className = 'list-item';
-        // Check if item has 'author' (Book) or 'issueNumber' (Magazine)
-        // Since we receive JSON, we rely on the object keys
-        const typeBadge = item.author ? 
-            '<span class="badge badge-book">Book</span>' : 
+
+        const typeBadge = item.type === 'Book' ?
+            '<span class="badge badge-book">Book</span>' :
             '<span class="badge badge-magazine">Magazine</span>';
-        
-        const detail = item.author ? `Author: ${item.author}` : `Issue: ${item.issueNumber}`;
+
+        const detail = item.type === 'Book' ? `Author: ${item.author}` : `Issue: ${item.issueNumber}`;
 
         div.innerHTML = `
             <div>
@@ -148,10 +139,10 @@ function renderItems(items) {
     });
 }
 
-function renderMembers(members) {
+function renderMembers() {
     const container = document.getElementById('membersList');
     container.innerHTML = "";
-    
+
     if (members.length === 0) {
         container.innerHTML = '<div class="empty-state">No members registered.</div>';
         return;
@@ -165,7 +156,27 @@ function renderMembers(members) {
                 <h3>${m.name}</h3>
                 <p>Member ID: ${m.memberId}</p>
             </div>
+            <div class="details">
+                <button class="delete-btn" onclick="deleteMember('${m.memberId}')">✕</button>
+            </div>
         `;
         container.appendChild(div);
     });
+}
+
+// Helper: Toast Notification
+function showToast(msg) {
+    const div = document.createElement('div');
+    div.style.position = 'fixed';
+    div.style.bottom = '20px';
+    div.style.right = '20px';
+    div.style.background = '#10b981';
+    div.style.color = 'white';
+    div.style.padding = '1rem 2rem';
+    div.style.borderRadius = '8px';
+    div.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    div.style.zIndex = '1000';
+    div.innerText = msg;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 3000);
 }
