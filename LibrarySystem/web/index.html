@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Library System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Lumina Library</h1>
+            <p>Next Gen Management System</p>
+        </header>
+
+        <main>
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('items')">Items</button>
+                <button class="tab-btn" onclick="switchTab('members')">Members</button>
+            </div>
+
+            <!-- Items Section -->
+            <section id="items-section" class="active-section">
+                <div class="card glass">
+                    <h2>Add New Item</h2>
+                    <form id="addItemForm">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select id="itemType" onchange="toggleInputs()">
+                                <option value="Book">Book</option>
+                                <option value="Magazine">Magazine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="itemTitle" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="itemId" placeholder="Item ID (e.g., B001)" required>
+                        </div>
+                        <div class="form-group" id="authorGroup">
+                            <input type="text" id="itemAuthor" placeholder="Author">
+                        </div>
+                        <div class="form-group hidden" id="issueGroup">
+                            <input type="number" id="itemIssue" placeholder="Issue Number">
+                        </div>
+                        <button type="submit" class="btn-primary">Add Item</button>
+                    </form>
+                </div>
+
+                <div class="card glass">
+                    <h2>Library Inventory</h2>
+                    <div id="itemsList" class="list-container">
+                        <!-- Items will be injected here -->
+                        <div class="empty-state">Loading items...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Members Section -->
+            <section id="members-section" class="hidden-section">
+                <div class="card glass">
+                    <h2>Register Member</h2>
+                    <form id="addMemberForm">
+                        <div class="form-group">
+                            <input type="text" id="memberName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="memberId" placeholder="Member ID (e.g., MEM01)" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Register Member</button>
+                    </form>
+                </div>
+
+                <div class="card glass">
+                    <h2>Member List</h2>
+                    <div id="membersList" class="list-container">
+                        <div class="empty-state">Loading members...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
