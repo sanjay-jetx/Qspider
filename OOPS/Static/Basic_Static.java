@@ -12,7 +12,16 @@ class Human {
     String Name;
     int Age;
     static long population;
+    
+    void greeting() {
+        invite();
+        System.out.println("hoo");
+    }
 
+    static void invite() {
+        //greeting();
+        System.out.println("hii");
+    }
 
     Human(String Name,int Age){
         this.Name=Name;
