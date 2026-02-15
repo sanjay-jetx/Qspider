@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "hash_basic",
+            "request": "launch",
+            "mainClass": "hash_basic",
+            "projectName": "QSpyder_programming_5bb29e89"
+        },
+        {
+            "type": "java",
+            "name": "Basic_Static",
+            "request": "launch",
+            "mainClass": "Static.Basic_Static",
+            "projectName": "QSpyder_programming_5bb29e89"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

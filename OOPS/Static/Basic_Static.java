@@ -1,9 +1,18 @@
 package Static;
 
 public class Basic_Static {
+    static {
+        System.out.println("ho");
+    }
     public static void main(String[] args) {
-        Human obj1 = new Human("sanjay", 20);
-        System.out.println(obj1.population);
+        // Human obj1 = new Human("sanjay", 20);
+        // System.out.println(obj1.population);
+
+        System.out.println("hii");
+    }
+
+    static {
+        System.out.println("hoo");
     }
 }
 
